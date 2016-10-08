@@ -23,7 +23,7 @@ function getRangeRandom(low,high){
 	return Math.floor(Math.random() * (high - low) + low);
 }
 
-var ImgFigure=React.createClass({
+class ImgFigure extends React.Component{
 	render(){
 
 		var styleObj = {};
@@ -45,7 +45,7 @@ var ImgFigure=React.createClass({
 			</figure>
 		)
 	}
-});
+};
 /*var GalleryByReactApp=React.createClass({
 	render:function(){
 		return (
@@ -66,25 +66,25 @@ module.exports=GalleryByReactApp;*/
 class AppComponent extends React.Component {
 
 
-  Constant:{
-  	centerPos:{
-  		left:0,
-  		right:0
-  	},
-  	hPosRange:{            //水平方向的取值范围
-  		leftSecX:[0,0],
-  		rightSecX:[0,0],
-  		y:[0,0]
-
-  	},
-  	vPosRange:{            //垂直方向的取值范围
-  		x:[0,0],
-  		topY:[0,0]
-  	}
-  },
   
   constructor(props){
         super(props);
+        this.Constant = {
+  	        centerPos:{
+  		      left:0,
+  		      right:0
+  	        },
+  	        hPosRange:{            //水平方向的取值范围
+  		      leftSecX:[0,0],
+  		      rightSecX:[0,0],
+  		      y:[0,0]
+
+  	        },
+  	        vPosRange:{            //垂直方向的取值范围
+  		      x:[0,0],
+  		      topY:[0,0]
+  	        }
+        };
         this.state = {
             imgsArrangeArr:[
              /* {
@@ -100,7 +100,7 @@ class AppComponent extends React.Component {
   *重新布局所有图片
   *@param centerIndex指定居中排布哪个图片
   */ 
-  rearrange : function(centerIndex){
+  rearrange(centerIndex){
   	var imgsArrangeArr = this.state.imgsArrangeArr,
   	    Constant = this.Constant,
   	    centerPos = Constant.centerPos,
@@ -165,7 +165,7 @@ class AppComponent extends React.Component {
 
 
 
-  },
+  }
 
 
 
@@ -209,7 +209,7 @@ class AppComponent extends React.Component {
 
     this.rearrange(0);
 
-  },
+  }
 
 
 
@@ -240,6 +240,7 @@ class AppComponent extends React.Component {
 	 </section>
     );
   }
+
 }
 
 
